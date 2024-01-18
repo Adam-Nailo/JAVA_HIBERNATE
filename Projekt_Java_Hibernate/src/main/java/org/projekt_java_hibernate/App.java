@@ -3,7 +3,7 @@ package org.projekt_java_hibernate;
 /**
  * Created by Adam Seweryn
  */
-public class Main {
+public class App {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
