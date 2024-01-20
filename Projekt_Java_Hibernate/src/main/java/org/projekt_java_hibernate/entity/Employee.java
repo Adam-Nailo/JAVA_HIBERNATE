@@ -1,9 +1,6 @@
-package org.projekt_java_hibernate;
+package org.projekt_java_hibernate.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 /**
@@ -15,6 +12,7 @@ import lombok.*;
 @Table(name = "employee")
 public class Employee {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_employee")
     private Integer idEmployee;
     @Column(name = "first_name")
