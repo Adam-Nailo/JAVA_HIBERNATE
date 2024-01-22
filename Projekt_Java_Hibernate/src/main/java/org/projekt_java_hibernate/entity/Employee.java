@@ -1,15 +1,18 @@
 package org.projekt_java_hibernate.entity;
 
-import jakarta.persistence.*;
+
 import lombok.*;
+
+import javax.persistence.*;
 
 /**
  * Created by Adam Seweryn
  */
-@Data
-@Builder
+@Getter
+@Setter
 @Entity
 @Table(name = "employee")
+
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

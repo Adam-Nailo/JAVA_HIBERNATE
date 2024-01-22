@@ -23,29 +23,29 @@ public class PrimaryKeyApp {
 //        pobranie sesji
         Session session = factory.getCurrentSession();
 //        stworzenie 3 obiektow
-        Employee employee1 = Employee.builder()
-                .firstName("Krzysztof")
-                .lastName("Nowak")
-                .salary(10000)
-                .build();
-
-        Employee employee2 = Employee.builder()
-                .firstName("Janina")
-                .lastName("Kowalski")
-                .salary(10000)
-                .build();
-
-        Employee employee3 = Employee.builder()
-                .firstName("Andrzej")
-                .lastName("Sienkiewicz")
-                .salary(10000)
-                .build();
+//        Employee employee1 = Employee.builder()
+//                .firstName("Krzysztof")
+//                .lastName("Nowak")
+//                .salary(10000)
+//                .build();
+//
+//        Employee employee2 = Employee.builder()
+//                .firstName("Janina")
+//                .lastName("Kowalski")
+//                .salary(10000)
+//                .build();
+//
+//        Employee employee3 = Employee.builder()
+//                .firstName("Andrzej")
+//                .lastName("Sienkiewicz")
+//                .salary(10000)
+//                .build();
 //        rozpoczecie transakcji
         session.beginTransaction();
 //        zapisanie 3 pracownikow
-        session.persist(employee1);
-        session.persist(employee2);
-        session.persist(employee3);
+//        session.persist(employee1);
+//        session.persist(employee2);
+//        session.persist(employee3);
 //        zakonczenie transakcji
         session.getTransaction().commit();
 //        zamkniecie obiektu SessionFactory

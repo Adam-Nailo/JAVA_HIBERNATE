@@ -25,16 +25,16 @@ public class SaveEntityApp {
 //        pobranie sesji
         Session session = factory.getCurrentSession();
 //        stworzenie obiektu
-        Employee employee = Employee.builder()
-                .idEmployee(4)
-                .firstName("Jan")
-                .lastName("Kowalski")
-                .salary(10000)
-                .build();
+//        Employee employee = Employee.builder()
+//                .idEmployee(4)
+//                .firstName("Jan")
+//                .lastName("Kowalski")
+//                .salary(10000)
+//                .build();
 //        rozpoczecie transakcji
         session.beginTransaction();
 //        zapisanie pracownika
-        session.persist(employee);
+//        session.persist(employee);
 //        zakonczenie transakcji
         session.getTransaction().commit();
 //        zamkniecie obiektu SessionFactory
