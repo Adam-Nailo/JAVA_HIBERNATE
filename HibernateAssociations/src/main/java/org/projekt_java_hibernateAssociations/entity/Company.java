@@ -23,6 +23,10 @@ public class Company {
     @Column(name = "value")
     private Integer value;
 
+    @OneToOne
+    @JoinColumn(name = "id_company_detail")
+    private CompanyDetail companyDetail;
+
     public Company(String name, Integer value) {
         this.name = name;
         this.value = value;
