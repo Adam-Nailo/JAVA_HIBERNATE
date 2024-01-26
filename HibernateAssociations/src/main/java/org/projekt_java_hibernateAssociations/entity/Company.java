@@ -23,7 +23,7 @@ public class Company {
     @Column(name = "value")
     private Integer value;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "id_company_detail")
     private CompanyDetail companyDetail;
 
