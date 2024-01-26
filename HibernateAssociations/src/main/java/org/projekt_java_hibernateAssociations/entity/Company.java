@@ -22,6 +22,7 @@ public class Company {
     private String name;
     @Column(name = "value")
     private Integer value;
+    @ToString.Exclude
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_company_detail")
     private CompanyDetail companyDetail;

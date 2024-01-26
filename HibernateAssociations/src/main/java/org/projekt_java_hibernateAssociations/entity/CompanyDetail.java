@@ -22,6 +22,7 @@ public class CompanyDetail {
     private String residence;
     @Column(name = "employee_number")
     private Integer employeeNumber;
+    @ToString.Exclude
     @OneToOne(mappedBy = "companyDetail", cascade = CascadeType.ALL)
     private Company company;
 
