@@ -22,6 +22,8 @@ public class CompanyDetail {
     private String residence;
     @Column(name = "employee_number")
     private Integer employeeNumber;
+    @OneToOne(mappedBy = "companyDetail", cascade = CascadeType.ALL)
+    private Company company;
 
     public CompanyDetail(String residence, Integer employeeNumber) {
         this.residence = residence;
