@@ -25,6 +25,10 @@ public class Property {
     private String city;
     @Column(name = "room_number")
     private Integer roomNumber;
+    @ToString.Exclude
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinColumn(name = "id_company")
+    private Company company;
 
     public Property(String city, Integer roomNumber) {
         this.city = city;
