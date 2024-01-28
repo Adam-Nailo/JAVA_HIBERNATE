@@ -42,7 +42,8 @@ public class Company {
     private List<Property> properties;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "company",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_company")
     private Set<Department> departments;
 
     public Company(String name, Integer value) {
