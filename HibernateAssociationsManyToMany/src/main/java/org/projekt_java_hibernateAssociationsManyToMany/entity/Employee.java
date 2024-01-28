@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Adam Seweryn
@@ -21,10 +22,17 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_employee")
     private Integer idEmployee;
+
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "salary")
     private Integer salary;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinTable(name = "employee_training", joinColumns = @JoinColumn(name="id_employee"), inverseJoinColumns = @JoinColumn(name = "id_training"))
+    private List<Training> trainings;
 }

@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Adam Seweryn
@@ -26,7 +28,18 @@ public class Training {
     @Column(name = "name")
     private String name;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinTable(name = "employee_training", joinColumns = @JoinColumn(name="id_training"), inverseJoinColumns = @JoinColumn(name = "id_employee"))
+    private List<Employee> employees;
+
     public Training(String name) {
         this.name = name;
+    }
+
+    public void addEmployee (Employee employee){
+        if (employees == null){
+            employees = new ArrayList<>();
+        }
+        employees.add(employee);
     }
 }
