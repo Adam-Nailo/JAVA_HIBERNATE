@@ -10,15 +10,15 @@ import org.projekt_java_hibernateAssociationsOneToManyUnidirectional.entity.Comp
 import org.projekt_java_hibernateAssociationsOneToManyUnidirectional.entity.Department;
 import org.projekt_java_hibernateAssociationsOneToManyUnidirectional.entity.Property;
 
-import java.util.List;
-import java.util.Set;
+import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Created by Adam Seweryn
  */
 @Data
 
-public class OneToManyUniGetApp {
+public class OneToManyUniDeleteApp {
     public static void main(String[] args) {
 //        stworzenie obiektu Configuration
         Configuration configuration = new Configuration();
@@ -34,19 +34,32 @@ public class OneToManyUniGetApp {
 //        pobranie sesji
         Session session = factory.getCurrentSession();
 
-        int id = 24;
+        int id = 3;
+        int idCompany = 24;
+        String departmentToDelete = "HR";
+        int idHql = 2;
+
+        String delete ="delete Department d where d.idDepartment =:idDepartment";
 
 //        rozpoczecie transakcji
         session.beginTransaction();
 
-        Company company = session.get(Company.class,id);
-        System.out.println(company);
+//        Department department = session.get(Department.class, id);
+//        session.delete(department);
 
-        Set<Department> departments = company.getDepartments();
+//        Company company = session.get(Company.class, idCompany);
+//
+//        for (Department department : company.getDepartments()) {
+//            if (Objects.equals(department.getName(), departmentToDelete)) {
+//                company.getDepartments().remove(department);
+//                session.delete(department);
+//            }
+//        }
+        Query query = session.createQuery(delete);
+        query.setParameter("idDepartment",idHql);
+        int deletedRows = query.executeUpdate();
 
-        for (Department department:departments){
-            System.out.println(department);
-        }
+        System.out.println("Liczba usuniętych wierszy: "+deletedRows);
 
 //        zakonczenie transakcji
         session.getTransaction().commit();
